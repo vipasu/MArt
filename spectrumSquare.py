@@ -3,6 +3,7 @@ import seaborn as sns
 import numpy as np
 import random
 from matplotlib import colors
+import hilbert
 
 
 color_list = ['cyan', 'goldenrod', 'seafoam green', 'light yellow', 'scarlet',
@@ -24,16 +25,25 @@ def generate_random_color():
     return idx
 
 
-def main(n=40):
+def plot_hilbert_curve(n, ax):
+    locs = hilbert.generate_locations(n)
+    for i in xrange(len(locs)-1):
+        start, finish = locs[i], locs[i+1]
+        xs, ys = zip(start,finish)
+        ax.plot(xs, ys, 'white', alpha=0.4, lw='1')
+
+
+def main(n=32):
     mat = np.zeros((n,n))
     for i in xrange(n):
         for j in xrange(n):
             mat[i][j] = generate_random_color()
-    print mat
-    plt.figure(figsize=(15,15))
-    art = plt.imshow(mat, interpolation='nearest', cmap=cmap, norm=norm)
-    plt.gca().xaxis.set_visible(False)
-    plt.gca().yaxis.set_visible(False)
+    fig = plt.figure(figsize=(15,15), frameon=False)
+    ax = fig.add_axes([0,0,1,1])
+    ax.axis('off')
+
+    art = ax.imshow(mat, interpolation='nearest', cmap=cmap, norm=norm)
+    plot_hilbert_curve(n, ax)
     plt.show()
 
 if __name__ == '__main__':
