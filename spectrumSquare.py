@@ -30,6 +30,7 @@ def main(n=40):
         for j in xrange(n):
             mat[i][j] = generate_random_color()
     print mat
+    plt.figure(figsize=(15,15))
     art = plt.imshow(mat, interpolation='nearest', cmap=cmap, norm=norm)
     plt.gca().xaxis.set_visible(False)
     plt.gca().yaxis.set_visible(False)
