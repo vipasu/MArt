@@ -4,4 +4,6 @@ This repo is dedicated to small projects which use math in some way to generate 
 
 _spectrumSquare.py_ randomly selects a color from a palette and places it on a grid. Inspired by Ellsworth Kelly.
 
-    - Possible extension: ~~Adding on Hilbert Curves~~
+- Extended to have a hilbert curve tracing through
+
+_mesh.py_ connects equally spaced ticks on adjacent axes. Inspired by bored 2nd grade math students.
