@@ -36,11 +36,11 @@ def plot_segments(segments):
 
 lower_left_mesh = generate_points(N, yreverse=True)
 plot_segments(lower_left_mesh)
-upper_left_shade = generate_points(N, yfill=1)
-plot_segments(upper_left_shade)
+upper_left_mesh = generate_points(N, yfill=1, xreverse=True)
+plot_segments(upper_left_mesh)
 upper_right_mesh = generate_points(N, xfill=1, yfill=1, yreverse=True)
 plot_segments(upper_right_mesh)
-lower_right_shade = generate_points(N, xfill=1)
-plot_segments(lower_right_shade)
+lower_right_mesh = generate_points(N, xfill=1, xreverse=True)
+plot_segments(lower_right_mesh)
 
 plt.show()
