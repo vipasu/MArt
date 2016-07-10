@@ -15,7 +15,7 @@ color_list = ['cyan', 'goldenrod', 'seafoam green', 'light yellow', 'scarlet',
         'melon', 'purpleish', 'bright light blue', 'strawberry', 'celadon']
 
 n_colors = len(color_list)
-palette = [sns.xkcd_rgb[c] for c in color_list]
+palette = sns.xkcd_palette(color_list)
 cmap = colors.ListedColormap(palette)
 bounds = range(n_colors+1)
 norm = colors.BoundaryNorm(bounds, cmap.N)
