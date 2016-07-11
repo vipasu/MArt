@@ -7,3 +7,5 @@ _spectrumSquare.py_ randomly selects a color from a palette and places it on a g
 - Extended to have a hilbert curve tracing through
 
 _mesh.py_ connects equally spaced ticks on adjacent axes. Inspired by bored 2nd grade math students.
+
+![4 corners][mesh_4_corners_bg.png]

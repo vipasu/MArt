@@ -19,8 +19,7 @@ def generate_points(n, xfill=0, yfill=0, xreverse=False, yreverse=True):
         ys = ys[::-1]
     return zip(zip(xs,np.ones(n)*xfill), zip(np.ones(n)*yfill, ys))
 
-fig = plt.figure(figsize=(10,10))
-fig.patch.set_visible(False)
+fig = plt.figure(figsize=(10,10), facecolor='black')
 ax = plt.gca()
 ax.axis('off')
 ax.set_xticklabels('')
