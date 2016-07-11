@@ -8,4 +8,4 @@ _spectrumSquare.py_ randomly selects a color from a palette and places it on a g
 
 _mesh.py_ connects equally spaced ticks on adjacent axes. Inspired by bored 2nd grade math students.
 
-![4 corners][mesh_4_corners_bg.png]
+![4 corners](mesh_4_corners_bg.png)
