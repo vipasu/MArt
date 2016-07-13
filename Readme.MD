@@ -14,3 +14,7 @@ _mesh.py_ connects equally spaced ticks on adjacent axes. Inspired by bored 2nd 
 _crosshairs.py_ samples points from a unit circle and draws intersecting axis-aligned lines. Can be customized to sample different distributions within the circle.
 
 ![Gaussian Crosshairs](CH_gaussian_clipping.png)
+
+_music.py_ plots notes with different heights and colors. No support for tempo or multiple notes at the same time. Let me know if you find any packages that do OMR (optical music recognition).
+
+![Random Music](music_random3.png)
