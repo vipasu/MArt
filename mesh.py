@@ -3,10 +3,7 @@ import seaborn as sns
 import numpy as np
 import random
 from matplotlib import rc
-sns.set(font_scale=3.5, rc={'xtick.labelsize': 25,'ytick.labelsize': 25,'legend.fontsize': 25})
-sns.set_style('ticks')
-rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
-rc('text', usetex=True)
+import plotting as p
 
 N = 100
 numcols = 20
@@ -20,13 +17,8 @@ def generate_points(n, xfill=0, yfill=0, xreverse=False, yreverse=True):
     return zip(zip(xs,np.ones(n)*xfill), zip(np.ones(n)*yfill, ys))
 
 fig = plt.figure(figsize=(10,10), facecolor='black')
-ax = plt.gca()
-ax.axis('off')
-ax.set_xticklabels('')
-ax.set_yticklabels('')
-ax.set_xticks([])
-ax.set_yticks([])
 
+p.remove_axes()
 
 def plot_segments(segments):
     palette = sns.color_palette('husl', numcols)
