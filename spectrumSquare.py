@@ -44,7 +44,7 @@ def main(n=32):
 
     art = ax.imshow(mat, interpolation='nearest', cmap=cmap, norm=norm)
     plot_hilbert_curve(n, ax)
-    plt.show()
+    plt.savefig('spectrum_hilbert.png')
 
 if __name__ == '__main__':
     main()

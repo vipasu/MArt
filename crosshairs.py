@@ -26,4 +26,4 @@ def plot_crosshairs(n):
 
 fig = plt.figure(figsize=(10,10),facecolor='black')
 plot_crosshairs(N)
-plt.savefig('CH__gaussian_clipping.png', facecolor=fig.get_facecolor(), edgecolor='none')
+plt.savefig('CH_gaussian_clipping.png', facecolor=fig.get_facecolor(), edgecolor='none')
