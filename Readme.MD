@@ -18,3 +18,7 @@ _crosshairs.py_ samples points from a unit circle and draws intersecting axis-al
 _music.py_ plots notes with different heights and colors. No support for tempo or multiple notes at the same time. Let me know if you find any packages that do OMR (optical music recognition).
 
 ![Random Music](music_random3.png)
+
+_field.py_ illustrates the shooting method of solving a boundary value problem using binary search on an angle. This is a one dimensional visualization, but may be extended to handle two dimensional acceleration fields.
+
+![Reverse Heaviside Field](field_reverse_heaviside.png)
