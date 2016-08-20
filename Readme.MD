@@ -22,3 +22,7 @@ _music.py_ plots notes with different heights and colors. No support for tempo o
 _field.py_ illustrates the shooting method of solving a boundary value problem using binary search on an angle. This is a one dimensional visualization, but may be extended to handle two dimensional acceleration fields.
 
 ![Reverse Heaviside Field](field_reverse_heaviside.png)
+
+_clock.py_ minimalist clock design which tries to capture the motion or passage of time in a still shot.
+
+![Clock](clock_teal.png)
