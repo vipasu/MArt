@@ -7,10 +7,10 @@ def main(n):
     p.plt.figure(figsize=(10,10), facecolor='black')
     vertices = generate_vertices(n)
     draw_segments(vertices)
-    pick_triangles(*vertices, depth=5)
+    pick_sub_shape(vertices, depth=5)
     p.remove_axes()
     p.plt.show()
-    # p.plt.savefig("temp.png")
+    p.plt.savefig("tesselate_%d_temp.png"%n)
     pass
 
 
@@ -38,24 +38,27 @@ def random_point_on_segment(p1, p2):
     return weighted_average(p1, p2, ran)
 
 
-def pick_triangles(c1, c2, c3, depth=0):
+def pick_sub_shape(points, depth=0):
     if depth is 0:
         return
 
-    c12 = random_point_on_segment(c1, c2)
-    c23 = random_point_on_segment(c2, c3)
-    c31 = random_point_on_segment(c3, c1)
-    points_to_draw = [c12, c23, c31]
+    n = len(points)
+    sub_shape_vertices = []
+    for i in xrange(n):
+        ip1 = (i+1) % n
+        sub_shape_vertices.append(random_point_on_segment(points[i], points[ip1]))
 
-    p.plt.fill(c1[0], c1[1], c2[0], c2[1])
-    draw_segments(points_to_draw)
+    draw_segments(sub_shape_vertices)
 
-    pick_triangles(c1, c12, c31, depth-1)
-    pick_triangles(c2, c12, c23, depth-1)
-    pick_triangles(c3, c23, c31, depth-1)
+    pick_sub_shape(sub_shape_vertices, depth-1)
+
+    # For special case of triangle, you can fill in the other spaces
+    # pick_triangles(c1, c12, c31, depth-1)
+    # pick_triangles(c2, c12, c23, depth-1)
+    # pick_triangles(c3, c23, c31, depth-1)
 
 
 if __name__ == '__main__':
-    main(3)
+    main(5)
 
 
