@@ -26,3 +26,5 @@ _field.py_ illustrates the shooting method of solving a boundary value problem u
 _clock.py_ minimalist clock design which tries to capture the motion or passage of time in a still shot.
 
 ![Clock](clock_teal.png)
+
+_strange.py_ (TODO) make a strange attractor

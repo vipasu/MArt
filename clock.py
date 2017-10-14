@@ -40,7 +40,7 @@ def plot_clock_face(col='w'):
     Optionally specify the color of the ring
     """
     p.remove_axes()
-    fig = plt.figure(figsize=(10,10), facecolor='k')
+    fig = plt.figure(figsize=(10,20), facecolor='k')
     ax = fig.add_subplot(111, polar=True)
     n_points = 100
     ax.plot(np.linspace(0, 2 * np.pi, n_points), n_points * [0.95], color=col,
@@ -82,3 +82,10 @@ def main():
     # adding an angle is going counter clockwise (backwards in time)
     generate_sweep(m_theta + delta_t, m_theta, ax)
     p.remove_axes()
+    fig = plt.gcf()
+    plt.savefig('clock_scale.png',facecolor=fig.get_facecolor(),
+                edgecolor='none')
+    plt.show()
+
+if __name__ == '__main__':
+    main()

@@ -1,5 +1,6 @@
 import numpy as np
 import plotting as p
+import sys
 
 
 def main(n):
@@ -7,10 +8,10 @@ def main(n):
     p.plt.figure(figsize=(10,10), facecolor='black')
     vertices = generate_vertices(n)
     draw_segments(vertices)
-    pick_sub_shape(vertices, depth=5)
+    pick_sub_shape(vertices, depth=5, fill_triangles=True)
     p.remove_axes()
-    p.plt.show()
-    p.plt.savefig("tesselate_%d_temp.png"%n)
+    # p.plt.show()
+    p.plt.savefig("tesselate_%d_temp.png"%n, facecolor='black')
     pass
 
 
@@ -38,8 +39,8 @@ def random_point_on_segment(p1, p2):
     return weighted_average(p1, p2, ran)
 
 
-def pick_sub_shape(points, depth=0):
-    if depth is 0:
+def pick_sub_shape(points, depth=0, fill_triangles=False):
+    if depth <= 0:
         return
 
     n = len(points)
@@ -50,15 +51,20 @@ def pick_sub_shape(points, depth=0):
 
     draw_segments(sub_shape_vertices)
 
-    pick_sub_shape(sub_shape_vertices, depth-1)
+    pick_sub_shape(sub_shape_vertices, depth-1, fill_triangles)
 
-    # For special case of triangle, you can fill in the other spaces
-    # pick_triangles(c1, c12, c31, depth-1)
-    # pick_triangles(c2, c12, c23, depth-1)
-    # pick_triangles(c3, c23, c31, depth-1)
+
+    if fill_triangles:
+        # For special case of triangle, you can fill in the other spaces
+        triangle_points = []
+        for i in xrange(n):
+            im1 = ( i - 1 ) % n
+            triangle_points.append([points[i], sub_shape_vertices[i], sub_shape_vertices[im1]])
+        for tri in triangle_points:
+            pick_sub_shape(tri, depth-2, fill_triangles)
 
 
 if __name__ == '__main__':
-    main(5)
+    main(int(sys.argv[1]))
 
 
